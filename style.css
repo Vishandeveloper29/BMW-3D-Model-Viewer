@@ -1,0 +1,240 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #08090d;
+  --surface: #0e1018;
+  --border: rgba(255, 255, 255, 0.06);
+  --gold: #c8a96e;
+  --gold-dim: #7a6540;
+  --text: #d4cfc6;
+  --muted: #4a4740;
+  --font-head: "Bebas Neue", sans-serif;
+  --font-mono: "DM Mono", monospace;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+#viewport {
+  position: fixed;
+  inset: 0;
+}
+
+canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 22px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 9, 13, 0.92) 0%,
+    transparent 100%
+  );
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(4px);
+}
+
+.brand {
+  font-family: var(--font-head);
+  font-size: 28px;
+  letter-spacing: 0.12em;
+  color: #fff;
+  line-height: 1;
+}
+
+.brand span {
+  color: var(--gold);
+}
+
+.badge {
+  font-size: 9px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 5px 10px;
+  border-radius: 2px;
+}
+
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s;
+}
+
+#loader.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-title {
+  font-family: var(--font-head);
+  font-size: 48px;
+  letter-spacing: 0.15em;
+  color: #fff;
+}
+
+.loader-title span {
+  color: var(--gold);
+}
+
+.loader-track {
+  width: 200px;
+  height: 1px;
+  background: #1c1c24;
+  overflow: hidden;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--gold);
+  transition: width 0.25s ease;
+}
+
+.loader-pct {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--gold-dim);
+}
+
+#info-panel {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.info-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.info-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold-dim);
+  flex-shrink: 0;
+}
+
+#controls-hint {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.hint {
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.corner {
+  position: fixed;
+  z-index: 5;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+}
+.corner.tl {
+  top: 70px;
+  left: 16px;
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+.corner.tr {
+  top: 70px;
+  right: 16px;
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+.corner.bl {
+  bottom: 16px;
+  left: 16px;
+  border-bottom: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+.corner.br {
+  bottom: 16px;
+  right: 16px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+#rotate-btn {
+  position: fixed;
+  top: 80px;
+  right: 32px;
+  z-index: 10;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+
+#rotate-btn:hover {
+  background: #16181f;
+  border-color: var(--gold-dim);
+}
+#rotate-btn.active {
+  background: rgba(200, 169, 110, 0.1);
+  border-color: var(--gold);
+}

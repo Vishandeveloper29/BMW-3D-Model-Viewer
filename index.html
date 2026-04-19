@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMW — 3D Viewer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three":         "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div id="loader">
+    <div class="loader-title">BM<span>W</span></div>
+    <div class="loader-track">
+      <div id="progress-bar"></div>
+    </div>
+    <div class="loader-pct" id="loader-pct">0%</div>
+  </div>
+
+  <header id="header">
+    <div class="brand">BM<span>W</span></div>
+    <div class="badge">3D Model Viewer</div>
+    <div class="badge">GLB · Three.js</div>
+  </header>
+
+  <div id="viewport">
+    <canvas id="main-canvas"></canvas>
+  </div>
+
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+
+  <div id="info-panel">
+    <div class="info-row"><div class="info-dot"></div>Format · GLB</div>
+    <div class="info-row"><div class="info-dot"></div>Renderer · WebGL 2</div>
+    <div class="info-row"><div class="info-dot"></div>Tone · ACES Filmic</div>
+  </div>
+
+  <div id="controls-hint">
+    <div class="hint">Drag → Rotate</div>
+    <div class="hint">Scroll → Zoom</div>
+    <div class="hint">Right drag → Pan</div>
+  </div>
+
+  <button id="rotate-btn" class="active">Auto Rotate ON</button>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
